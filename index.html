@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arbel3D · Presentes impressos em 3D em Apucarana</title>
+<meta name="description" content="Presentes e decoração impressos em 3D, feitos em Apucarana-PR. Escolha cores e nomes, veja o total na hora e faça o pedido pelo WhatsApp.">
+<meta name="theme-color" content="#14213D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arbel3D · Presentes impressos em 3D">
+<meta property="og:description" content="Natal, decoração, brinquedos e utilidades impressos em 3D. Monte seu pedido e envie pelo WhatsApp.">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1iFdLC4hQSfz8rh0vwRV7Xn1MKClk6FL4=w1200">
+<meta property="og:url" content="https://arbel3d.netlify.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20150%20170%22%3E%3Cpolygon%20points%3D%2275%2C8%20140%2C45%2075%2C82%2010%2C45%22%20fill%3D%22%23E76F00%22/%3E%3Cpolygon%20points%3D%2210%2C45%2075%2C82%2075%2C160%2010%2C123%22%20fill%3D%22%2314213D%22/%3E%3Cpolygon%20points%3D%22140%2C45%2075%2C82%2075%2C160%20140%2C123%22%20fill%3D%22%232A9D8F%22/%3E%3C/svg%3E">
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: navy hero striped like print layers → sticky category chips → product grid + sticky order panel (bottom sheet on phones) */
+:root{
+  --bg:#F2F4F8; --surface:#FFFFFF; --ink:#14213D; --muted:#5A6580; --line:#DFE4EC; --soft:#F6F8FB;
+  --brand:#14213D; --brand-2:#1C2D52; --on-brand:#FFFFFF; --on-brand-muted:#C3CCDD;
+  --accent:#E76F00; --accent-ink:#14213D; --accent-soft:#FDEBD9; --teal:#1F7A6F; --teal-soft:#E2F2EF; --danger:#C0392B;
+  --display:"Sora","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:20px; --shadow:0 1px 2px rgba(20,33,61,.06),0 8px 24px rgba(20,33,61,.08);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C1424; --surface:#152038; --ink:#EEF2F8; --muted:#A6B1C6; --line:#26334F; --soft:#111B30;
+  --brand:#08101F; --brand-2:#121E37; --on-brand:#FFFFFF; --on-brand-muted:#AEB9CE;
+  --accent:#F2862A; --accent-ink:#14213D; --accent-soft:#3A2614; --teal:#5FC4B5; --teal-soft:#123433; --danger:#FF7B6B;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C1424; --surface:#152038; --ink:#EEF2F8; --muted:#A6B1C6; --line:#26334F; --soft:#111B30;
+  --brand:#08101F; --brand-2:#121E37; --on-brand:#FFFFFF; --on-brand-muted:#AEB9CE;
+  --accent:#F2862A; --accent-ink:#14213D; --accent-soft:#3A2614; --teal:#5FC4B5; --teal-soft:#123433; --danger:#FF7B6B;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--brand)}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* hero */
+.hero{background:
+  repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 9px),
+  radial-gradient(120% 90% at 100% 0%,var(--brand-2),var(--brand) 60%);
+  color:var(--on-brand);position:relative;overflow:hidden}
+.hero .wrap{padding-block:22px 40px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:center}
+.top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em}
+.brand b{color:var(--accent)}
+.wa-top{display:inline-flex;align-items:center;gap:8px;color:var(--on-brand);text-decoration:none;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 14px}
+.wa-top:hover{background:rgba(255,255,255,.08)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-family:var(--display);font-size:clamp(32px,5.4vw,56px);line-height:1.02;letter-spacing:-.035em;margin:10px 0 14px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{margin:0;color:var(--on-brand-muted);max-width:46ch;font-size:16px}
+.trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.trust li{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+.trust svg{flex:0 0 auto}
+.mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:10px;aspect-ratio:5/4;max-width:100%}
+.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.mosaic img:first-child{grid-row:span 2;grid-column:span 2}
+.steps{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:6px 0 0;padding:0;list-style:none}
+.steps li{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 14px}
+.steps b{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--display)}
+.steps span{font-size:14px;font-weight:600;line-height:1.3}
+
+/* filter chips */
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:12;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.filters .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+.filters .wrap::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* layout */
+main .wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;padding-block:22px 130px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(20,33,61,.08),0 16px 36px rgba(20,33,61,.14)}
+.media{position:relative}
+.media img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--soft)}
+.badge{position:absolute;left:12px;bottom:12px;background:var(--brand);color:var(--on-brand);border-radius:12px;padding:6px 11px;font-family:var(--display);font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.badge small{display:block;font-family:var(--body);font-weight:600;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-brand-muted)}
+.tag{position:absolute;right:12px;top:12px;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.cbody{padding:16px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card h3{font-family:var(--display);font-size:17px;margin:0;line-height:1.2;letter-spacing:-.01em}
+.desc{color:var(--muted);font-size:13.5px;margin:-6px 0 0}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field>span,.lbl{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+select,input,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%;min-width:0}
+textarea{resize:vertical;min-height:70px}
+select:focus,input:focus,textarea:focus,button:focus-visible,a:focus-visible,.opt input:focus-visible+span{outline:2px solid var(--teal);outline-offset:2px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:600;cursor:pointer;background:var(--surface);min-height:36px}
+.opt span i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.2);display:block}
+.opt span em{font-style:normal;color:var(--muted);font-weight:500}
+.opt input:checked+span{border-color:var(--teal);background:var(--teal-soft);box-shadow:inset 0 0 0 1px var(--teal)}
+.buy{display:flex;gap:10px;align-items:stretch;margin-top:auto;padding-top:4px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--soft)}
+.qty button{width:38px;height:44px;border:0;background:transparent;color:var(--ink);font-size:20px;cursor:pointer}
+.qty input{width:40px;border:0;border-radius:0;text-align:center;padding:0;height:44px;background:transparent;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.btn{border:0;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;padding:12px 16px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn-primary{background:var(--accent);color:var(--accent-ink);flex:1}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-wa{background:#1FA855;color:#fff;width:100%;font-size:16px}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.err{font-size:13px;color:var(--danger);font-weight:600;margin:0}
+.err:empty{display:none}
+
+/* toolbar, sections */
+.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.search{position:relative;flex:1 1 240px;min-width:0}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.search input{padding-left:40px;background:var(--surface);height:46px;border-radius:14px}
+.sort{flex:0 0 auto;width:auto;height:46px;background:var(--surface);border-radius:14px;padding-right:34px}
+.rescount{flex:1 0 100%;margin:0;color:var(--muted);font-size:13px}
+.sec{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin:14px 0 -4px;font-family:var(--display);font-size:22px;letter-spacing:-.02em}
+.sec:first-child{margin-top:0}
+.sec small{font-family:var(--body);font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0}
+.sec::after{content:"";flex:1;height:1px;background:var(--line);align-self:center}
+.chip .n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;margin-left:6px;border-radius:999px;background:var(--soft);color:var(--muted);font-size:11.5px;font-weight:700}
+.chip[aria-pressed="true"] .n{background:rgba(255,255,255,.18);color:inherit}
+.tag.novo{background:var(--teal);color:#fff}
+.desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.foot-links a{color:var(--on-brand);font-weight:600;text-decoration:none}
+.foot-links a:hover{text-decoration:underline}
+
+/* promo + ideas */
+.promo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-block:22px 0}
+.pcard{position:relative;overflow:hidden;border-radius:var(--r);padding:22px 22px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--surface)}
+.pcard.biz{background:linear-gradient(135deg,#0F2A4A,#14213D);color:#fff;border-color:transparent}
+.pcard.idea{background:linear-gradient(135deg,#FFF4E8,#FDEBD9);border-color:#F6D3B0;color:#14213D}
+.pcard .k{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.pcard.biz .k{color:#F4A259}
+.pcard h2{font-family:var(--display);font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0}
+.pcard p{margin:0;font-size:14.5px;opacity:.88;max-width:46ch}
+.pcard .btn{align-self:flex-start;margin-top:6px}
+.pcard.biz .btn{background:#F4A259;color:#14213D}
+.pcard.idea .btn{background:#14213D;color:#fff}
+.pcard svg.bg{position:absolute;right:-18px;bottom:-22px;opacity:.13;pointer-events:none}
+.ideas{padding-block:10px 40px;scroll-margin-top:70px}
+.ideas .box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);overflow:hidden}
+.ideas .intro{background:radial-gradient(120% 90% at 0% 0%,var(--brand-2),var(--brand) 70%);color:var(--on-brand);padding:30px 28px;display:flex;flex-direction:column;gap:14px}
+.ideas .intro h2{font-family:var(--display);font-size:30px;line-height:1.1;letter-spacing:-.025em;margin:0}
+.ideas .intro h2 em{font-style:normal;color:var(--accent)}
+.ideas .intro p{margin:0;color:var(--on-brand-muted)}
+.ideas .intro ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.ideas .intro li{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.ideas .intro li b{flex:0 0 24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:12.5px}
+.ideas form{padding:26px 28px;display:flex;flex-direction:column;gap:12px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.chk input{width:20px;height:20px;flex:0 0 20px;margin-top:1px;accent-color:var(--teal)}
+.navlinks{display:flex;gap:6px;align-items:center}
+.navlinks a.lnk{color:var(--on-brand);text-decoration:none;font-weight:600;font-size:14px;padding:7px 12px;border-radius:999px}
+.navlinks a.lnk:hover{background:rgba(255,255,255,.08)}
+.bizbox{display:flex;flex-direction:column;gap:6px;background:var(--accent-soft);border-radius:12px;padding:10px 12px;font-size:12.5px;color:var(--ink)}
+
+/* order panel */
+aside.order{position:sticky;top:calc(76px + env(safe-area-inset-top,0px));background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);display:flex;flex-direction:column;max-height:calc(100vh - 96px);overflow:hidden}
+.ohead{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
+.ohead h2{font-family:var(--display);margin:0;font-size:20px;display:flex;align-items:center;gap:10px}
+.count{background:var(--accent);color:var(--accent-ink);border-radius:999px;font-size:13px;min-width:26px;height:26px;padding:0 8px;display:inline-grid;place-items:center;font-family:var(--body);font-weight:800}
+.obody{padding:16px 18px;overflow:auto;display:flex;flex-direction:column;gap:14px}
+.items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.items li{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:2px 12px;align-items:start;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.items img{width:48px;height:48px;border-radius:10px;object-fit:cover;grid-row:span 3}
+.items .n{font-weight:700;line-height:1.3}
+.items .d{grid-column:2;color:var(--muted);font-size:12.5px;overflow-wrap:anywhere}
+.items .v{font-variant-numeric:tabular-nums;font-weight:700;text-align:right;white-space:nowrap}
+.items .rm{grid-column:3;grid-row:2;justify-self:end;background:none;border:0;color:var(--muted);font-size:12px;text-decoration:underline;cursor:pointer;padding:0}
+.empty{text-align:center;color:var(--muted);font-size:14px;padding:18px 8px;border:1.5px dashed var(--line);border-radius:14px;margin:0}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--display);font-size:24px;font-weight:800;padding-top:4px}
+.total span:last-child{color:var(--accent);font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--muted);margin:0}
+.sep{height:1px;background:var(--line);margin:2px 0}
+.form{display:flex;flex-direction:column;gap:12px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.ok{font-size:13px;margin:0;color:var(--teal);font-weight:600}
+.ok:empty{display:none}
+.preview{white-space:pre-wrap;font-size:12.5px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px;max-height:200px;overflow:auto;margin-top:8px}
+details summary{cursor:pointer}
+
+/* mobile bar + sheet */
+.bar{display:none}
+.scrim{display:none}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{background:var(--brand);color:var(--on-brand-muted);font-size:13px}
+footer .wrap{padding-block:26px calc(110px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer b{color:var(--on-brand)}
+
+
+.media{overflow:hidden;cursor:zoom-in}
+.media img{transition:transform .35s ease}
+.card:hover .media img{transform:scale(1.04)}
+.media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,16,31,.35));pointer-events:none}
+.badge{z-index:1}.tag{z-index:1}
+.prazo{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:var(--teal-soft);color:var(--teal);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:700}
+.items .p{grid-column:2;font-size:12px;color:var(--teal);font-weight:600}
+.eta{display:flex;gap:10px;align-items:flex-start;background:var(--teal-soft);color:var(--ink);border-radius:12px;padding:10px 12px;font-size:13px}
+.eta b{color:var(--teal)}
+.lightbox{position:fixed;inset:0;z-index:60;background:rgba(8,16,31,.86);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lightbox img{max-width:min(1000px,100%);max-height:80vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox p{color:#fff;font-family:var(--display);font-weight:700;margin:12px 0 0;text-align:center}
+.lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px))}
+.loading{grid-column:1/-1;color:var(--muted);text-align:center;padding:30px 0}
+footer a{color:var(--on-brand-muted)}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .mosaic{aspect-ratio:auto;grid-template-rows:none;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .mosaic img{aspect-ratio:1/1}
+  .mosaic img:first-child{grid-row:auto;grid-column:auto}
+  main .wrap{grid-template-columns:minmax(0,1fr)}
+  aside.order{position:fixed;inset:auto 0 0 0;top:auto;border-radius:22px 22px 0 0;max-height:88vh;z-index:30;transform:translateY(105%);transition:transform .28s ease;border-bottom:0}
+  aside.order.open{transform:none}
+  .ohead{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+  .obody{padding:16px max(18px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+  .scrim{display:block;position:fixed;inset:0;background:rgba(8,16,31,.5);z-index:25;opacity:0;pointer-events:none;transition:opacity .25s}
+  .scrim.show{opacity:1;pointer-events:auto}
+  .bar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;background:var(--brand);color:var(--on-brand);border-radius:18px;padding:10px 10px 10px 18px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);margin-left:env(safe-area-inset-left,0px);margin-right:env(safe-area-inset-right,0px)}
+  .bar small{display:block;font-size:12px;color:var(--on-brand-muted)}
+  .bar strong{font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums}
+  .bar .btn{flex:0 0 auto}
+  .close{display:inline-flex!important}
+}
+@media (max-width:820px){ .promo{grid-template-columns:minmax(0,1fr)} .ideas .box{grid-template-columns:minmax(0,1fr)} .navlinks a.lnk{display:none} }
+@media (max-width:600px){
+  .hero .wrap{padding-block:16px 28px;gap:20px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .steps li{padding:10px 12px}
+  .grid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .two{grid-template-columns:minmax(0,1fr)}
+  .wa-top span{display:none}
+  .hero h1{font-size:34px}
+  .trust{gap:6px;margin-top:14px}.trust li{font-size:12px;padding:5px 10px}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .steps li{flex-direction:column;align-items:flex-start;gap:6px;padding:10px}
+  .steps b{width:24px;height:24px;flex-basis:24px;font-size:13px}
+  .steps span{font-size:12px}
+  .sort{flex:1 1 auto}
+  .sec{font-size:20px}
+}
+@media (min-width:601px) and (max-width:980px){ .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.close{display:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <svg width="32" height="36" viewBox="0 0 150 170" aria-hidden="true"><polygon points="75,8 140,45 75,82 10,45" fill="#E76F00"/><polygon points="10,45 75,82 75,160 10,123" fill="#FFFFFF"/><polygon points="140,45 75,82 75,160 140,123" fill="#2A9D8F"/></svg>
+        <div>Arbel<b>3D</b></div>
+      </div>
+      <div class="navlinks"><a class="lnk" href="#" data-goto="Para Empresas">Para empresas</a><a class="lnk" href="#ideia">Mande sua ideia</a>
+      <a class="wa-top" id="waTop" href="#" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+        <span>Fale com a gente</span></a></div>
+    </div>
+    <div>
+      <div class="kicker">Natal 2026 · Presentes o ano todo</div>
+      <h1>Presentes impressos em 3D, <em>do seu jeito</em></h1>
+      <p>Escolha os produtos, as cores e os nomes. O total aparece na hora e o pedido chega pronto no nosso WhatsApp.</p>
+      <ul class="trust">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg>Feito camada por camada</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Apucarana e região</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/></svg>Nomes personalizados</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Pix, cartão ou dinheiro</li>
+      </ul>
+    </div>
+    <div class="mosaic" aria-hidden="true">
+      <img src="https://lh3.googleusercontent.com/d/1iFdLC4hQSfz8rh0vwRV7Xn1MKClk6FL4=w1000" alt="">
+      <img src="https://lh3.googleusercontent.com/d/1MR3hrS9pWKp1AmFZ-iVxCCPYjDh6oZ1b=w1000" alt="">
+      <img src="https://lh3.googleusercontent.com/d/1iwFI3MsHqIWnDaI-qCrUI1QCGxs9oQX5=w1000" alt="">
+    </div>
+    <ol class="steps">
+      <li><b>1</b><span>Escolha produto, cor e quantidade</span></li>
+      <li><b>2</b><span>Preencha seu nome e como quer receber</span></li>
+      <li><b>3</b><span>Envie o pedido pronto no WhatsApp</span></li>
+    </ol>
+  </div>
+</header>
+
+<section class="wrap promo" aria-label="Destaques">
+  <div class="pcard biz">
+    <svg class="bg" width="170" height="190" viewBox="0 0 150 170" aria-hidden="true"><polygon points="75,8 140,45 75,82 10,45" fill="#fff"/><polygon points="10,45 75,82 75,160 10,123" fill="#fff"/><polygon points="140,45 75,82 75,160 140,123" fill="#fff"/></svg>
+    <span class="k">Para empresas</span>
+    <h2>Brindes com a logo da sua marca</h2>
+    <p>Plaquinha Pix, chaveiros, porta-cartões e tags com o nome ou a logo da empresa. Para pedidos a partir de 20 unidades, fazemos orçamento especial.</p>
+    <a class="btn" href="#" data-goto="Para Empresas">Ver brindes para empresas</a>
+  </div>
+  <div class="pcard idea">
+    <svg class="bg" width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.6" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+    <span class="k">Sob encomenda</span>
+    <h2>Tem uma ideia? A gente imprime</h2>
+    <p>Peça de reposição, presente diferente, lembrancinha de festa ou a peça que você imaginou. Conte pra gente e mandamos o orçamento.</p>
+    <a class="btn" href="#ideia">Enviar minha ideia</a>
+  </div>
+</section>
+
+<nav class="filters shop" aria-label="Categorias"><div class="wrap" id="chips"></div></nav>
+
+<main class="shop">
+  <div class="wrap">
+    <div>
+      <div class="toolbar">
+        <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar produto" aria-label="Buscar produto" autocomplete="off"></label>
+        <select id="sort" class="sort" aria-label="Ordenar"><option value="rel">Destaques</option><option value="asc">Menor preço</option><option value="desc">Maior preço</option></select>
+        <p class="rescount" id="rescount" aria-live="polite"></p>
+      </div>
+      <section class="grid" id="grid" aria-label="Produtos"></section>
+    </div>
+
+    <aside class="order" id="order" aria-label="Seu pedido">
+      <div class="ohead">
+        <h2>Seu pedido <span class="count" id="count">0</span></h2>
+        <button class="btn btn-ghost close" id="closeOrder" type="button">Fechar</button>
+      </div>
+      <div class="obody">
+        <ul class="items" id="items"></ul>
+        <p class="empty" id="empty">Seu pedido está vazio.<br>Escolha as opções de um produto e toque em <strong>Adicionar</strong>.</p>
+        <div class="eta" id="eta" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="etaText"></span></div>
+        <div class="total"><span>Total</span><span id="total">R$ 0,00</span></div>
+        <p class="note" id="shipNote" hidden>Entrega em Apucarana e região: a taxa é combinada pelo WhatsApp.</p>
+        <div class="sep"></div>
+        <form id="form" class="form" novalidate>
+          <label class="field"><span>Seu nome</span><input id="cName" autocomplete="name" placeholder="Ex.: Maria Souza"></label>
+          <label class="field"><span>Seu WhatsApp</span><input id="cPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(43) 99999-9999"></label>
+          <div class="field"><span class="lbl">Como quer receber?</span>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="ship" id="shipPick" value="Retirada" checked><span>Retirar com a gente</span></label>
+              <label class="opt"><input type="radio" name="ship" id="shipDel" value="Entrega"><span>Entrega</span></label>
+            </div>
+          </div>
+          <label class="field" id="addrWrap" hidden><span>Endereço completo</span><input id="cAddr" autocomplete="street-address" placeholder="Rua, número, bairro, cidade"></label>
+          <div class="two">
+            <label class="field"><span>Para quando?</span><input id="cDate" placeholder="Ex.: até 15/12"></label>
+            <label class="field"><span>Pagamento</span><select id="cPay"><option>Pix</option><option>Dinheiro</option><option>Cartão</option><option>Combinar</option></select></label>
+          </div>
+          <label class="field"><span>Observações</span><textarea id="cObs" placeholder="Algum detalhe a mais?"></textarea></label>
+          <p class="err" id="err" role="alert"></p>
+          <p class="ok" id="ok" role="status"></p>
+          <a class="btn btn-wa" id="sendWa" href="#" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+            Enviar pedido no WhatsApp</a>
+          <button class="btn btn-ghost" id="copy" type="button">Copiar pedido</button>
+          <p class="note" id="tgNote" hidden>Prefere Telegram? Copie o pedido e mande para <strong id="tgUser"></strong>.</p>
+          <details><summary class="note">Ver o texto que vai ser enviado</summary><div class="preview" id="preview"></div></details>
+        </form>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox" hidden><button class="btn btn-ghost" style="background:#fff;color:#14213D" type="button" id="lbClose">Fechar</button><div><img id="lbImg" alt=""><p id="lbCap"></p></div></div>
+
+<div class="scrim" id="scrim"></div>
+<div class="bar shop" id="bar">
+  <div><small id="barCount">Nenhum item</small><strong id="barTotal">R$ 0,00</strong></div>
+  <button class="btn btn-primary" id="openOrder" type="button">Ver pedido</button>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<section class="wrap ideas" id="ideia" aria-labelledby="ideiaT">
+  <div class="box">
+    <div class="intro">
+      <span class="kicker">Sob encomenda</span>
+      <h2 id="ideiaT">Conte sua ideia, <em>a gente imprime</em></h2>
+      <p>Não achou o que queria no catálogo? Descreva a peça e mande uma foto ou desenho de referência. Respondemos pelo WhatsApp com o orçamento.</p>
+      <ul>
+        <li><b>1</b><span>Preencha o que você imaginou, a quantidade e o prazo.</span></li>
+        <li><b>2</b><span>Toque em enviar: o WhatsApp abre com tudo escrito.</span></li>
+        <li><b>3</b><span>Lá na conversa, anexe a foto, o desenho ou a logo.</span></li>
+      </ul>
+    </div>
+    <form id="ideaForm" novalidate>
+      <div class="two">
+        <label class="field"><span>Seu nome</span><input id="iName" autocomplete="name" placeholder="Ex.: Maria Souza"></label>
+        <label class="field"><span>Seu WhatsApp</span><input id="iPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(43) 99999-9999"></label>
+      </div>
+      <div class="field"><span class="lbl">É para</span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="iFor" value="Uso pessoal / presente" checked><span>Mim ou presente</span></label>
+          <label class="opt"><input type="radio" name="iFor" value="Empresa"><span>Minha empresa</span></label>
+          <label class="opt"><input type="radio" name="iFor" value="Festa ou evento"><span>Festa ou evento</span></label>
+        </div>
+      </div>
+      <label class="field" id="iCompWrap" hidden><span>Nome da empresa</span><input id="iComp" placeholder="Ex.: Padaria Pão Quente"></label>
+      <label class="field"><span>Descreva sua ideia</span><textarea id="iDesc" rows="4" placeholder="Ex.: 50 chaveiros com a logo da minha loja, em azul e branco, com uns 5 cm."></textarea></label>
+      <div class="two">
+        <label class="field"><span>Quantidade</span><input id="iQty" inputmode="numeric" placeholder="Ex.: 50"></label>
+        <label class="field"><span>Para quando?</span><input id="iDate" placeholder="Ex.: até 10/12"></label>
+      </div>
+      <label class="chk"><input type="checkbox" id="iImg" checked><span>Tenho foto, desenho ou logo para mandar na conversa</span></label>
+      <p class="err" id="iErr" role="alert"></p>
+      <p class="ok" id="iOk" role="status"></p>
+      <a class="btn btn-wa" id="iSend" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Enviar ideia no WhatsApp</a>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div><b>Arbel3D</b> · Arthur, Benício e Elen · Apucarana-PR e região</div>
+  <div class="foot-links"><a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp (43) 99904-8532</a><span>Pix, cartão ou dinheiro</span></div>
+  <div>Fotos ilustrativas. As cores podem variar um pouco.</div>
+</div></footer>
+
+<script>
+/* ===== CONFIGURAÇÃO ===== */
+const CONFIG = {
+  whatsapp: "5543999048532",
+  telegram: "",
+  sheetId: "1uuVqujV5KtATy5x4Mfvh_eE0ovFrOx83LlMgFNfU0ps"   // planilha "Arbel3D – Produtos do site"
+};
+const COLORS = {"Vermelho":"#C8102E","Verde":"#0B6B3A","Branco":"#F4F4F0","Dourado":"#C9A227","Bege":"#D9C4A1","Creme":"#EFE3C8",
+  "Azul":"#2F6FB5","Rosa":"#E58FB0","Preto":"#1E1E1E","Marrom":"#5B3A22","Laranja":"#E76F00","Amarelo":"#F2C230","Prata":"#B9BDC4","Lilás":"#B57EDC","Roxo":"#6B3FA0","Cinza":"#8A8F98"};
+const IMAGES = {
+  "arvore-nomes":"https://lh3.googleusercontent.com/d/1ZbsXEmYPr5sItv7y7jPTZvxKki1rHxfe=w1000","enfeite-sueter":"https://lh3.googleusercontent.com/d/1MR3hrS9pWKp1AmFZ-iVxCCPYjDh6oZ1b=w1000","gnomo":"https://lh3.googleusercontent.com/d/1RaWhzgmdFFMBr7uTIqX6HnFp-fdG-C7W=w1000","porta-bombom-natalino":"https://lh3.googleusercontent.com/d/110-sQGgWzg2P7E1LLT-pZPlQpq6iX7vS=w1000",
+  "chaveiro-espirito-santo":"https://lh3.googleusercontent.com/d/10g79FCNPwWAeHrZ2sHid5P7bCbzTuGwh=w1000","arvore-porta-bombom":"https://lh3.googleusercontent.com/d/1PbTR8lrtpb1dGvgRSD-4ke7Ow7nyPjJY=w1000","letreiro-feliz-natal":"https://lh3.googleusercontent.com/d/1X5pjhr3_5qEuF2PgdQ35BpgmmddnQsnS=w1000",
+  "presepio-estrela":"https://lh3.googleusercontent.com/d/1iFdLC4hQSfz8rh0vwRV7Xn1MKClk6FL4=w1000","sagrada-familia":"https://lh3.googleusercontent.com/d/1eUBOQ9rlNjqaCcq_FPkJoEzeoyirDWm7=w1000","presepio-completo":"https://lh3.googleusercontent.com/d/14kDM9ZNUldocZwDyznZqy3Gzu5LqTtvF=w1000","ele-vive":"https://lh3.googleusercontent.com/d/1tUHHPhtvLleYqvd4r1fHVx4bryl87va3=w1000"
+};
+/* Cópia de segurança: usada se a planilha não abrir */
+const FALLBACK_CSV = `id,ativo,categoria,nome,descricao,preco,opcao_titulo,opcoes,cores,personalizar,prazo,destaque,imagem
+arvore-nomes,sim,Personalizados,Árvore de Nomes,"Com os nomes da sua família, em verde, vermelho e estrela dourada. Imagem ilustrativa.",40,Tamanho,15 cm=40 | 20 cm=55 | 25 cm=65,,nomes,1 semana,Mais pedido,
+enfeite-sueter,sim,Personalizados,Enfeite Suéter com Nome,Para pendurar na árvore. Um nome por enfeite.,10,,,Vermelho | Verde | Azul,nome,1 semana,R$ 10,
+gnomo,sim,Lembrancinhas,Gnomo Porta-Bombom,Lembrancinha para equipe e amigo secreto. *Não acompanha chocolate.,9,,,Branco | Vermelho | Verde,,2 dias,,
+porta-bombom-natalino,sim,Lembrancinhas,Porta-Bombom Natalino,4 modelos para escolher. *Não acompanha chocolate.,22,Modelo,Papai Noel | Boneco de Neve | Árvore | Rena,,,2 dias,,
+chaveiro-espirito-santo,sim,Lembrancinhas,Chaveiro Espírito Santo,Pomba em relevo. Ótimo para presentear.,15,,,,,2 dias,,
+arvore-porta-bombom,sim,Decoração,Árvore Porta-Bombom,15 cm. A tampa sai e vira potinho. *Não acompanha bombons.,40,,,Verde | Creme,,2 dias,,
+letreiro-feliz-natal,sim,Decoração,Letreiro Feliz Natal,"Para o aparador, a estante ou a mesa.",30,,,Vermelho | Verde | Branco | Dourado,,2 dias,,
+presepio-estrela,sim,Religiosos,Presépio Estrela,Para sua casa ou para presentear.,22,,,Bege | Branco,,2 dias,,
+sagrada-familia,sim,Religiosos,Sagrada Família,"Maria, José e o Menino Jesus.",40,,,Bege | Branco,,2 dias,,
+presepio-completo,sim,Religiosos,Presépio Completo,"Sagrada Família, Reis Magos e animais.",50,,,Bege | Branco,,2 dias,,
+ele-vive,sim,Religiosos,Ele Vive,Decoração com coroa de espinhos e Jesus.,60,,,,,2 dias,,`;
+/* ======================== */
+
+const brl = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",minimumFractionDigits:Number.isInteger(v)?0:2,maximumFractionDigits:2});
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const waNum = () => CONFIG.whatsapp.replace(/\D/g,"");
+let PRODUCTS = [], CATS = ["Todos"], cart = [], filter = "Todos", source = "", query = "", sortBy = "rel";
+const norm = s => String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+try { cart = JSON.parse(localStorage.getItem("arbel3d-cart") || "[]"); } catch(e) { cart = []; }
+const save = () => { try { localStorage.setItem("arbel3d-cart", JSON.stringify(cart)); } catch(e) {} };
+
+function parseCSV(t){
+  const rows=[]; let row=[], f="", q=false;
+  for (let i=0;i<t.length;i++){ const c=t[i];
+    if (q){ if (c==='"'){ if (t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=c; }
+    else if (c==='"') q=true; else if (c===','){ row.push(f); f=""; }
+    else if (c==='\n'||c==='\r'){ if (c==='\r'&&t[i+1]==='\n') i++; row.push(f); rows.push(row); row=[]; f=""; }
+    else f+=c; }
+  if (f!==""||row.length){ row.push(f); rows.push(row); }
+  return rows.filter(r=>r.some(x=>x.trim()!==""));
+}
+const num = v => { const n = parseFloat(String(v).replace(/[^\d,.-]/g,"").replace(/\.(?=\d{3}\b)/g,"").replace(",",".")); return isNaN(n)?0:n; };
+const list = v => String(v||"").split("|").map(x=>x.trim()).filter(Boolean);
+function driveImg(u){ const m=String(u).match(/(?:\/d\/|[?&]id=)([\w-]{20,})/); return m && /drive\.google|docs\.google/.test(u) ? `https://lh3.googleusercontent.com/d/${m[1]}=w1000` : u; }
+
+function toProducts(csv){
+  const rows=parseCSV(csv); const head=rows.shift().map(h=>h.trim().toLowerCase());
+  const g=(r,k)=>{ const i=head.indexOf(k); return i<0?"":(r[i]||"").trim(); };
+  return rows.map(r=>{
+    const id=g(r,"id"); if(!id) return null;
+    const price=num(g(r,"preco")); const pers=g(r,"personalizar").toLowerCase();
+    const opts=list(g(r,"opcoes")).map(o=>{ const [l,p]=o.split("="); return [l.trim(), p!==undefined?num(p):price]; });
+    const colors=list(g(r,"cores")).map(c=>{ const [n,h]=c.split(":"); if(h) COLORS[n.trim()]=h.trim(); return n.trim(); });
+    return { id, active:!/^n/i.test(g(r,"ativo")||"sim"), cat:g(r,"categoria")||"Outros", name:g(r,"nome")||id, desc:g(r,"descricao"),
+      price, options: opts.length?[{label:g(r,"opcao_titulo")||"Opção", choices:opts}]:null, colors: colors.length?colors:null,
+      text: pers.startsWith("nomes") ? {label:"Nomes (um por linha)", multiline:true, placeholder:"Arthur\nBenício\nElen"}
+          : pers.startsWith("nome") ? {label:"Nome", placeholder:"Ex.: Mia"}
+          : pers.startsWith("empresa") ? {label:"Texto ou nome da empresa", placeholder:"Ex.: Padaria Pão Quente", biz:true} : null,
+      prazo: g(r,"prazo") || (pers ? "1 semana" : "2 dias"), tag:g(r,"destaque"),
+      img: g(r,"imagem") ? driveImg(g(r,"imagem")) : (IMAGES[id] || "") };
+  }).filter(Boolean);
+}
+async function loadProducts(){
+  try {
+    const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),7000);
+    const r=await fetch(`https://docs.google.com/spreadsheets/d/${CONFIG.sheetId}/gviz/tq?tqx=out:csv&headers=1&_=${Math.floor(Date.now()/60000)}`,{signal:ctl.signal});
+    clearTimeout(tm); if(!r.ok) throw new Error(r.status);
+    const ps=toProducts(await r.text()); if(!ps.length) throw new Error("vazia");
+    PRODUCTS=ps; source="planilha";
+  } catch(e){ PRODUCTS=toProducts(FALLBACK_CSV); source="copia"; }
+  const shown=PRODUCTS.filter(p=>p.active);
+  CATS=["Todos",...new Set(shown.map(p=>p.cat))];
+  cart=cart.filter(it=>shown.some(p=>p.id===it.id));
+  renderChips(); renderGrid(); renderCart();
+}
+const prices = p => p.options ? p.options[0].choices.map(c=>c[1]) : [p.price];
+const days = s => { const t=String(s).toLowerCase(), n=num(t)||1; return /seman/.test(t)?n*7:/m[eê]s/.test(t)?n*30:n; };
+
+function renderChips(){ const act=PRODUCTS.filter(p=>p.active); $("chips").innerHTML = CATS.map(c=>{ const n=c==="Todos"?act.length:act.filter(p=>p.cat===c).length; return `<button class="chip" type="button" data-cat="${esc(c)}" aria-pressed="${c===filter}">${esc(c)}<span class="n">${n}</span></button>`; }).join(""); }
+function renderGrid(){
+  const qq=norm(query).trim();
+  let ps=PRODUCTS.filter(p=>p.active&&(filter==="Todos"||p.cat===filter)&&(!qq||norm(p.name+" "+p.desc+" "+p.cat).includes(qq)));
+  if(sortBy!=="rel") ps=[...ps].sort((a,b)=>(Math.min(...prices(a))-Math.min(...prices(b)))*(sortBy==="asc"?1:-1));
+  $("rescount").textContent = qq ? (ps.length?`${ps.length} ${ps.length===1?"produto encontrado":"produtos encontrados"} para "${query.trim()}"`:"") : "";
+  const grouped = filter==="Todos" && !qq && sortBy==="rel";
+  if(!ps.length){ $("grid").innerHTML=`<p class="loading">Nenhum produto encontrado${qq?` para "${esc(query.trim())}"`:" nesta categoria"}. Fale com a gente no WhatsApp que a gente imprime sob encomenda.</p>`; return; }
+  if(grouped){ $("grid").innerHTML = CATS.slice(1).map(c=>{ const g=ps.filter(p=>p.cat===c); return g.length?`<h2 class="sec">${esc(c)} <small>${g.length} ${g.length===1?"produto":"produtos"}</small></h2>`+g.map(card).join(""):""; }).join(""); return; }
+  $("grid").innerHTML = ps.map(card).join("");
+}
+function card(p){ {
+    const pr=prices(p), varied=new Set(pr).size>1;
+    const opt=(p.options||[]).map((o,i)=>`<div class="field"><span class="lbl">${esc(o.label)}</span><div class="opts">${o.choices.map((c,j)=>`
+      <label class="opt"><input type="radio" name="${p.id}-o${i}" value="${esc(c[0])}" data-price="${c[1]}" ${j===0?"checked":""}><span>${esc(c[0])}${varied?` <em>${brl(c[1])}</em>`:""}</span></label>`).join("")}</div></div>`).join("");
+    const col=p.colors?`<div class="field"><span class="lbl">Cor</span><div class="opts">${p.colors.map((c,i)=>`
+      <label class="opt"><input type="radio" name="${p.id}-color" value="${esc(c)}" ${i===0?"checked":""}><span><i style="background:${esc(COLORS[c]||"#9AA3B2")}"></i>${esc(c)}</span></label>`).join("")}</div></div>`:"";
+    const txt=p.text?`<label class="field"><span>${p.text.label}</span>${p.text.multiline?`<textarea id="${p.id}-txt" placeholder="${esc(p.text.placeholder)}"></textarea>`:`<input id="${p.id}-txt" maxlength="${p.text.biz?40:16}" placeholder="${esc(p.text.placeholder)}">`}</label>${p.text.biz?`<div class="bizbox"><b>Tem logo?</b>Depois de enviar o pedido, mande a logo na conversa do WhatsApp.</div>`:""}`:"";
+    return `<article class="card">
+      <div class="media" data-zoom="${p.id}" role="button" tabindex="0" aria-label="Ver foto maior de ${esc(p.name)}">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" width="1000" height="800">`:`<img alt="" width="1000" height="800">`}
+        <div class="badge">${varied?"<small>a partir de</small>":""}${brl(Math.min(...pr))}</div>${p.tag?`<div class="tag${/^novo/i.test(p.tag)?" novo":""}">${esc(p.tag)}</div>`:""}</div>
+      <div class="cbody">
+        <h3>${esc(p.name)}</h3>
+        <p class="desc">${esc(p.desc)}</p>
+        <span class="prazo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Fica pronto em ${esc(p.prazo)}</span>
+        ${opt}${col}${txt}
+        <p class="err" id="${p.id}-err"></p>
+        <div class="buy"><div class="qty"><button type="button" aria-label="Diminuir" data-q="-1" data-id="${p.id}">−</button><input id="${p.id}-qty" type="number" min="1" value="1" aria-label="Quantidade"><button type="button" aria-label="Aumentar" data-q="1" data-id="${p.id}">+</button></div>
+          <button class="btn btn-primary" type="button" data-add="${p.id}">Adicionar</button></div>
+      </div></article>`;
+  } }
+let toastT; function toast(t){ const el=$("toast"); el.textContent=t; el.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove("show"),2200); }
+function addItem(id){
+  const p=PRODUCTS.find(x=>x.id===id); const qty=Math.max(1,parseInt($(id+"-qty").value,10)||1);
+  let unit=p.price||0; const details=[];
+  (p.options||[]).forEach((o,i)=>{ const r=document.querySelector(`input[name="${id}-o${i}"]:checked`); unit=Number(r.dataset.price); details.push(`${o.label}: ${r.value}`); });
+  if (p.colors) details.push(`Cor: ${document.querySelector(`input[name="${id}-color"]:checked`).value}`);
+  if (p.text){ const t=$(id+"-txt").value.trim();
+    if(!t){ $(id+"-err").textContent="Escreva "+(p.text.biz?"o texto ou o nome da empresa":p.text.multiline?"os nomes":"o nome")+" antes de adicionar."; $(id+"-txt").focus(); return; }
+    details.push(`${p.text.biz?"Texto":p.text.multiline?"Nomes":"Nome"}: ${t.split(/\n+/).map(s=>s.trim()).filter(Boolean).join(", ")}`); $(id+"-txt").value=""; }
+  $(id+"-err").textContent=""; cart.push({id,name:p.name,details,unit,qty,prazo:p.prazo}); $(id+"-qty").value=1;
+  save(); renderCart(); toast(`${qty}x ${p.name} no seu pedido`);
+}
+const total=()=>cart.reduce((s,it)=>s+it.unit*it.qty,0);
+const ship=()=>document.querySelector('input[name="ship"]:checked').value;
+const eta=()=>{ if(!cart.length) return ""; const it=cart.reduce((a,b)=>days(b.prazo)>days(a.prazo)?b:a); return it.prazo; };
+function orderText(){
+  const L=["*Novo pedido · Arbel3D*",""];
+  L.push(`Cliente: ${$("cName").value.trim()}`,`WhatsApp: ${$("cPhone").value.trim()}`);
+  L.push(`Recebimento: ${ship()}${ship()==="Entrega"&&$("cAddr").value.trim()?" · "+$("cAddr").value.trim():""}`);
+  if($("cDate").value.trim()) L.push(`Para quando: ${$("cDate").value.trim()}`);
+  L.push(`Pagamento: ${$("cPay").value}`,"","*Itens*");
+  cart.forEach((it,i)=>L.push(`${i+1}) ${it.qty}x ${it.name}${it.details.length?" · "+it.details.join(" · "):""} = ${brl(it.unit*it.qty)}`));
+  L.push("",`*Total: ${brl(total())}*`);
+  if(cart.length) L.push(`Prazo de produção: até ${eta()} após a confirmação`);
+  if(ship()==="Entrega") L.push("(taxa de entrega a combinar)");
+  if($("cObs").value.trim()) L.push("",`Observações: ${$("cObs").value.trim()}`);
+  return L.join("\n");
+}
+function validate(){
+  if(!cart.length) return "Adicione pelo menos um produto.";
+  if(!$("cName").value.trim()) return "Escreva seu nome.";
+  if($("cPhone").value.replace(/\D/g,"").length<10) return "Escreva seu WhatsApp com DDD.";
+  if(ship()==="Entrega"&&!$("cAddr").value.trim()) return "Escreva o endereço para a entrega.";
+  return "";
+}
+function renderCart(){
+  const img=id=>(PRODUCTS.find(p=>p.id===id)||{}).img||"";
+  $("items").innerHTML=cart.map((it,i)=>`<li><img src="${esc(img(it.id))}" alt=""><span class="n">${it.qty}x ${esc(it.name)}</span><span class="v">${brl(it.unit*it.qty)}</span>
+    <span class="d">${esc(it.details.join(" · "))}</span><button class="rm" type="button" data-rm="${i}">remover</button><span class="p">Pronto em ${esc(it.prazo||"")}</span></li>`).join("");
+  $("empty").hidden=cart.length>0; $("eta").hidden=!cart.length;
+  if(cart.length) $("etaText").innerHTML=`Prazo de produção: <b>até ${esc(eta())}</b> depois que confirmarmos o pedido.`;
+  const t=brl(total()), n=cart.reduce((s,it)=>s+it.qty,0);
+  $("total").textContent=t; $("barTotal").textContent=t; $("count").textContent=n;
+  $("barCount").textContent=n===0?"Nenhum item":n===1?"1 item":`${n} itens`; refresh();
+}
+function refresh(){
+  const txt=orderText(); $("preview").textContent=txt;
+  $("sendWa").href=waNum().length>=12?`https://wa.me/${waNum()}?text=${encodeURIComponent(txt)}`:"#";
+  $("addrWrap").hidden=ship()!=="Entrega"; $("shipNote").hidden=ship()!=="Entrega";
+}
+function openSheet(o){ $("order").classList.toggle("open",o); $("scrim").classList.toggle("show",o); }
+function zoom(id){ const p=PRODUCTS.find(x=>x.id===id); if(!p||!p.img) return; $("lbImg").src=p.img; $("lbImg").alt=p.name; $("lbCap").textContent=p.name; $("lightbox").hidden=false; $("lbClose").focus(); }
+
+document.addEventListener("click",e=>{
+  const q=e.target.closest("[data-q]"); if(q){ const inp=$(q.dataset.id+"-qty"); inp.value=Math.max(1,(parseInt(inp.value,10)||1)+Number(q.dataset.q)); return; }
+  const a=e.target.closest("[data-add]"); if(a){ addItem(a.dataset.add); return; }
+  const r=e.target.closest("[data-rm]"); if(r){ cart.splice(Number(r.dataset.rm),1); save(); renderCart(); return; }
+  const c=e.target.closest("[data-cat]"); if(c){ filter=c.dataset.cat; renderChips(); renderGrid(); const t=$("grid").getBoundingClientRect().top+scrollY-140; if(scrollY>t) scrollTo({top:t,behavior:"smooth"}); return; }
+  const z=e.target.closest("[data-zoom]"); if(z){ zoom(z.dataset.zoom); return; }
+  if(e.target.id==="lightbox"||e.target.id==="lbClose") $("lightbox").hidden=true;
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ $("lightbox").hidden=true; openSheet(false); } if(e.key==="Enter"&&e.target.dataset&&e.target.dataset.zoom) zoom(e.target.dataset.zoom); });
+$("form").addEventListener("input",refresh); $("form").addEventListener("change",refresh); $("form").addEventListener("submit",e=>e.preventDefault());
+$("sendWa").addEventListener("click",e=>{
+  const err=validate(); if(err){ e.preventDefault(); $("err").textContent=err; $("ok").textContent=""; return; }
+  $("err").textContent=""; $("ok").textContent="Abrindo o WhatsApp com seu pedido. É só tocar em enviar lá.";
+});
+$("copy").addEventListener("click",()=>{
+  const err=validate(); if(err){ $("err").textContent=err; return; } $("err").textContent="";
+  const done=()=>{ $("ok").textContent="Pedido copiado. Cole na conversa com a Arbel3D."; };
+  const fb=()=>{ const d=$("preview").closest("details"); d.open=true; const rg=document.createRange(); rg.selectNodeContents($("preview")); const s=getSelection(); s.removeAllRanges(); s.addRange(rg); $("ok").textContent="Texto selecionado. Copie e cole na conversa."; };
+  try{ navigator.clipboard.writeText(orderText()).then(done,fb); }catch(x){ fb(); }
+});
+$("openOrder").addEventListener("click",()=>openSheet(true)); $("closeOrder").addEventListener("click",()=>openSheet(false)); $("scrim").addEventListener("click",()=>openSheet(false));
+function ideaText(){
+  const v=id=>$(id).value.trim(); const forv=document.querySelector('input[name="iFor"]:checked').value;
+  const L=["*Nova ideia · Arbel3D*","",`Nome: ${v("iName")}`,`WhatsApp: ${v("iPhone")}`,`Para: ${forv}${forv==="Empresa"&&v("iComp")?" · "+v("iComp"):""}`,"","*Ideia*",v("iDesc")];
+  if(v("iQty")) L.push("",`Quantidade: ${v("iQty")}`); if(v("iDate")) L.push(`Para quando: ${v("iDate")}`);
+  if($("iImg").checked) L.push("","Vou mandar a foto, o desenho ou a logo aqui na conversa.");
+  return L.join("\n");
+}
+function ideaRefresh(){ $("iCompWrap").hidden=document.querySelector('input[name="iFor"]:checked').value!=="Empresa"; $("iSend").href=`https://wa.me/${waNum()}?text=${encodeURIComponent(ideaText())}`; }
+$("ideaForm").addEventListener("input",ideaRefresh); $("ideaForm").addEventListener("change",ideaRefresh); $("ideaForm").addEventListener("submit",e=>e.preventDefault());
+$("iSend").addEventListener("click",e=>{ let err=""; if(!$("iName").value.trim()) err="Escreva seu nome."; else if($("iPhone").value.replace(/\D/g,"").length<10) err="Escreva seu WhatsApp com DDD."; else if($("iDesc").value.trim().length<8) err="Conte um pouco mais sobre a sua ideia.";
+  if(err){ e.preventDefault(); $("iErr").textContent=err; $("iOk").textContent=""; return; } $("iErr").textContent=""; $("iOk").textContent="Abrindo o WhatsApp. Envie a mensagem e anexe as imagens na conversa."; });
+document.addEventListener("click",e=>{ const g=e.target.closest("[data-goto]"); if(!g) return; e.preventDefault(); if(CATS.includes(g.dataset.goto)){ filter=g.dataset.goto; query=""; $("q").value=""; renderChips(); renderGrid(); } $("chips").scrollIntoView({behavior:"smooth"}); });
+ideaRefresh();
+$("q").addEventListener("input",e=>{ query=e.target.value; renderGrid(); });
+$("sort").addEventListener("change",e=>{ sortBy=e.target.value; renderGrid(); });
+$("waFoot").href=`https://wa.me/${waNum()}`;
+$("waTop").href=`https://wa.me/${waNum()}?text=${encodeURIComponent("Olá, Arbel3D! Vim pelo site e tenho uma dúvida.")}`;
+if(CONFIG.telegram){ $("tgNote").hidden=false; $("tgUser").textContent=CONFIG.telegram; }
+$("grid").innerHTML='<p class="loading">Carregando produtos…</p>';
+loadProducts();
+</script>
+
+</body></html>
